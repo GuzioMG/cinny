@@ -197,6 +197,42 @@ const darkThemeData = {
 
 export const darkTheme = createTheme(color, darkThemeData);
 
+export const oledTheme = createTheme(color, {
+  ...darkThemeData,
+  Background: {
+    ...darkThemeData.Background,
+    Container: '#000000',
+  },
+
+  Surface: {
+    ...darkThemeData.Surface,
+    Container: '#000000',
+  },
+
+  SurfaceVariant: {
+    ...darkThemeData.SurfaceVariant,
+    Container: '#000000',
+  },
+});
+
+export const dcTheme = createTheme(color, {
+  ...darkThemeData,
+  Background: {
+    ...darkThemeData.Background,
+    Container: '#2c2d32',
+  },
+
+  Surface: {
+    ...darkThemeData.Surface,
+    Container: '#323339',
+  },
+
+  SurfaceVariant: {
+    ...darkThemeData.SurfaceVariant,
+    Container: '#393a41',
+  },
+});
+
 export const butterTheme = createTheme(color, {
   ...darkThemeData,
   Background: {
