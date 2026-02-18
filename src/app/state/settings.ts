@@ -44,14 +44,14 @@ export interface Settings {
 }
 
 const defaultSettings: Settings = {
-  themeId: undefined,
-  useSystemTheme: true,
-  lightThemeId: undefined,
-  darkThemeId: undefined,
+  themeId: 'dc-theme',
+  useSystemTheme: false,
+  lightThemeId: 'silver-theme',
+  darkThemeId: 'dc-theme',
   monochromeMode: false,
   isMarkdown: true,
   editorToolbar: false,
-  twitterEmoji: false,
+  twitterEmoji: true,
   pageZoom: 100,
   hideActivity: false,
 
@@ -59,7 +59,7 @@ const defaultSettings: Settings = {
   memberSortFilterIndex: 0,
   enterForNewline: false,
   messageLayout: 0,
-  messageSpacing: '400',
+  messageSpacing: '200',
   hideMembershipEvents: false,
   hideNickAvatarEvents: true,
   mediaAutoLoad: true,
@@ -71,7 +71,7 @@ const defaultSettings: Settings = {
   showNotifications: true,
   isNotificationSounds: true,
 
-  hour24Clock: false,
+  hour24Clock: Number.isInteger(Number(new Intl.DateTimeFormat([], { hour: 'numeric' }).format())), // From stackoverflow.com/questions/60740996
   dateFormatString: 'D MMM YYYY',
 
   developerTools: false,
