@@ -12,6 +12,7 @@ import { scaleSystemEmoji } from '../../plugins/react-custom-html-parser';
 import { useRoomEvent } from '../../hooks/useRoomEvent';
 import colorMXID from '../../../util/colorMXID';
 import { GetMemberPowerTag } from '../../hooks/useMemberPowerTag';
+import ReplyMarker from './ReplyMarker';
 
 type ReplyLayoutProps = {
   userColor?: string;
@@ -26,9 +27,9 @@ export const ReplyLayout = as<'div', ReplyLayoutProps>(
       {...props}
       ref={ref}
     >
-      <Box style={{ color: userColor, maxWidth: toRem(200) }} alignItems="Center" shrink="No">
-        <Icon size="100" src={Icons.ReplyArrow} />
-        {username}
+      <Box style={{}} alignItems="Center" shrink="No">
+        <ReplyMarker />
+        <Text style={{ maxWidth: toRem(145), color: userColor }}>{username}</Text>
       </Box>
       <Box grow="Yes" className={css.ReplyContent}>
         {children}

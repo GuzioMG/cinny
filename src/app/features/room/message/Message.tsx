@@ -817,7 +817,7 @@ export const Message = as<'div', MessageProps>(
 
     const msgContentJSX = (
       <Box direction="Column" alignSelf="Start" style={{ maxWidth: '100%' }}>
-        {reply}
+        {messageLayout === MessageLayout.Compact && reply }
         {edit && onEditId ? (
           <MessageEditor
             style={{
@@ -891,6 +891,7 @@ export const Message = as<'div', MessageProps>(
         {...focusWithinProps}
         ref={ref}
       >
+        {messageLayout !== MessageLayout.Compact && reply }
         {!edit && (hover || !!menuAnchor || !!emojiBoardAnchor) && (
           <div className={css.MessageOptionsBase}>
             <Menu className={css.MessageOptionsBar} variant="SurfaceVariant">
