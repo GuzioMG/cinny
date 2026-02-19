@@ -1075,6 +1075,7 @@ export function RoomTimeline({ room, eventId, roomInputRef, editor }: RoomTimeli
             reactions={
               reactionRelations && (
                 <Reactions
+                  imagePackRooms={imagePackRooms}
                   style={{ marginTop: config.space.S200 }}
                   room={room}
                   relations={reactionRelations}
@@ -1157,6 +1158,7 @@ export function RoomTimeline({ room, eventId, roomInputRef, editor }: RoomTimeli
             reactions={
               reactionRelations && (
                 <Reactions
+                  imagePackRooms={imagePackRooms}
                   style={{ marginTop: config.space.S200 }}
                   room={room}
                   relations={reactionRelations}
@@ -1260,6 +1262,7 @@ export function RoomTimeline({ room, eventId, roomInputRef, editor }: RoomTimeli
             reactions={
               reactionRelations && (
                 <Reactions
+                  imagePackRooms={imagePackRooms}
                   style={{ marginTop: config.space.S200 }}
                   room={room}
                   relations={reactionRelations}
