@@ -10,6 +10,8 @@ import {
   TooltipProvider,
   as,
   toRem,
+  RectCords,
+  PopOut,
 } from 'folds';
 import classNames from 'classnames';
 import { Room } from 'matrix-js-sdk';
@@ -17,7 +19,8 @@ import { type Relations } from 'matrix-js-sdk/lib/models/relations';
 import FocusTrap from 'focus-trap-react';
 import { useMatrixClient } from '../../../hooks/useMatrixClient';
 import { factoryEventSentBy } from '../../../utils/matrix';
-import { Reaction, ReactionTooltipMsg } from '../../../components/message';
+import { AddReaction, Reaction, ReactionTooltipMsg } from '../../../components/message';
+import { EmojiBoard } from '../../../components/emoji-board';
 import { useRelations } from '../../../hooks/useRelations';
 import * as css from './styles.css';
 import { ReactionViewer } from '../reaction-viewer';
@@ -29,13 +32,27 @@ export type ReactionsProps = {
   mEventId: string;
   canSendReaction?: boolean;
   relations: Relations;
+  imagePackRooms: Room[];
   onReactionToggle: (targetEventId: string, key: string, shortcode?: string) => void;
 };
 export const Reactions = as<'div', ReactionsProps>(
-  ({ className, room, relations, mEventId, canSendReaction, onReactionToggle, ...props }, ref) => {
+  (
+    {
+      className,
+      room,
+      relations,
+      mEventId,
+      canSendReaction,
+      imagePackRooms,
+      onReactionToggle,
+      ...props
+    },
+    ref
+  ) => {
     const mx = useMatrixClient();
     const useAuthentication = useMediaAuthentication();
     const [viewer, setViewer] = useState<boolean | string>(false);
+    const [emojiBoardAnchor, setEmojiBoardAnchor] = useState<RectCords>();
     const myUserId = mx.getUserId();
     const reactions = useRelations(
       relations,
@@ -48,6 +65,10 @@ export const Reactions = as<'div', ReactionsProps>(
       const key = evt.currentTarget.getAttribute('data-reaction-key');
       if (!key) setViewer(true);
       else setViewer(key);
+    };
+    const handleOpenEmojiBoard: MouseEventHandler<HTMLButtonElement> = (evt) => {
+      const target = evt.currentTarget;
+      setEmojiBoardAnchor(target.getBoundingClientRect());
     };
 
     return (
@@ -123,6 +144,35 @@ export const Reactions = as<'div', ReactionsProps>(
               </FocusTrap>
             </OverlayCenter>
           </Overlay>
+        )}
+        {canSendReaction && (
+          <>
+            <AddReaction onClick={handleOpenEmojiBoard} onContextMenu={handleViewReaction} />
+            {emojiBoardAnchor && (
+              <PopOut
+                position="Bottom"
+                anchor={emojiBoardAnchor}
+                content={
+                  <EmojiBoard
+                    imagePackRooms={imagePackRooms ?? []}
+                    returnFocusOnDeactivate={false}
+                    allowTextCustomEmoji
+                    onEmojiSelect={(key) => {
+                      onReactionToggle(mEventId, key);
+                      setEmojiBoardAnchor(undefined);
+                    }}
+                    onCustomEmojiSelect={(mxc, shortcode) => {
+                      onReactionToggle(mEventId, mxc, shortcode);
+                      setEmojiBoardAnchor(undefined);
+                    }}
+                    requestClose={() => {
+                      setEmojiBoardAnchor(undefined);
+                    }}
+                  />
+                }
+              />
+            )}
+          </>
         )}
       </Box>
     );

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Box, Text, as } from 'folds';
+import { Box, Icon, Icons, Text, as } from 'folds';
 import classNames from 'classnames';
 import { MatrixClient, MatrixEvent, Room } from 'matrix-js-sdk';
 import * as css from './Reaction.css';
@@ -29,8 +29,7 @@ export const Reaction = as<
       {reaction.startsWith('mxc://') ? (
         <img
           className={css.ReactionImg}
-          src={mxcUrlToHttp(mx, reaction, useAuthentication) ?? reaction
-          }
+          src={mxcUrlToHttp(mx, reaction, useAuthentication) ?? reaction}
           alt={reaction}
         />
       ) : (
@@ -41,6 +40,22 @@ export const Reaction = as<
     </Text>
     <Text as="span" size="T300">
       {count}
+    </Text>
+  </Box>
+));
+
+export const AddReaction = as<'button'>(({ className, ...props }, ref) => (
+  <Box
+    as="button"
+    className={classNames(css.Reaction, className)}
+    alignItems="Center"
+    shrink="No"
+    gap="200"
+    {...props}
+    ref={ref}
+  >
+    <Text className={css.ReactionText} as="span" size="T400">
+      <Icon className={css.ReactionImg} src={Icons.SmilePlus} />
     </Text>
   </Box>
 ));
