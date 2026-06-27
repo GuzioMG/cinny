@@ -1,0 +1,70 @@
+{
+  "features": {
+    "ghcr.io/devcontainers-extra/features/fish-apt-get:1": {
+      "version": "1.0.5",
+      "resolved": "ghcr.io/devcontainers-extra/features/fish-apt-get@sha256:d3c21bb6aec6e0f9d5348adee443c70c31d5f4372b8ad5f56a0ab925b2725108",
+      "integrity": "sha256:d3c21bb6aec6e0f9d5348adee443c70c31d5f4372b8ad5f56a0ab925b2725108"
+    },
+    "ghcr.io/devcontainers/features/docker-in-docker:2": {
+      "version": "2.17.0",
+      "resolved": "ghcr.io/devcontainers/features/docker-in-docker@sha256:25b9f05705ffba7dbe503230ac76081419306f8c8bc88e0ce78c4ecd99a0c78c",
+      "integrity": "sha256:25b9f05705ffba7dbe503230ac76081419306f8c8bc88e0ce78c4ecd99a0c78c"
+    },
+    "ghcr.io/devcontainers/features/node:1": {
+      "version": "1.7.1",
+      "resolved": "ghcr.io/devcontainers/features/node@sha256:8c0de46939b61958041700ee89e3493f3b2e4131a06dc46b4d9423427d06e5f6",
+      "integrity": "sha256:8c0de46939b61958041700ee89e3493f3b2e4131a06dc46b4d9423427d06e5f6"
+    },
+    "ghcr.io/guziomg/devcontainers/extension-spellcheck:latest": {
+      "version": "1.0.0",
+      "resolved": "ghcr.io/guziomg/devcontainers/extension-spellcheck@sha256:954a79f524e5130b7c961e6d0ac7252fbc8e40c5e63229b030f5a27477dfa7ce",
+      "integrity": "sha256:954a79f524e5130b7c961e6d0ac7252fbc8e40c5e63229b030f5a27477dfa7ce"
+    },
+    "ghcr.io/guziomg/devcontainers/extensions-essentials-ultimate:latest": {
+      "version": "1.0.0",
+      "resolved": "ghcr.io/guziomg/devcontainers/extensions-essentials-ultimate@sha256:62483dfabb169b804d1d385eccf0344a8b0d6a62c60b3761d579e70a59291772",
+      "integrity": "sha256:62483dfabb169b804d1d385eccf0344a8b0d6a62c60b3761d579e70a59291772",
+      "dependsOn": [
+        "ghcr.io/guziomg/devcontainers/extensions-github:latest",
+        "ghcr.io/guziomg/devcontainers/extensions-essentials:latest",
+        "ghcr.io/guziomg/devcontainers/extension-spellcheck:latest"
+      ]
+    },
+    "ghcr.io/guziomg/devcontainers/extensions-essentials:latest": {
+      "version": "1.0.0",
+      "resolved": "ghcr.io/guziomg/devcontainers/extensions-essentials@sha256:bbd0673cb07d64ca60e714a786db2c55bf921fbd49bad907376a0dfa960258d9",
+      "integrity": "sha256:bbd0673cb07d64ca60e714a786db2c55bf921fbd49bad907376a0dfa960258d9"
+    },
+    "ghcr.io/guziomg/devcontainers/extensions-github:latest": {
+      "version": "1.0.0",
+      "resolved": "ghcr.io/guziomg/devcontainers/extensions-github@sha256:5455b28dcb0cfa1c4a0ed0c9ac9fad263af9c5265406021923c50027b6ca62d9",
+      "integrity": "sha256:5455b28dcb0cfa1c4a0ed0c9ac9fad263af9c5265406021923c50027b6ca62d9"
+    },
+    "ghcr.io/guziomg/devcontainers/fish-apt-extended:latest": {
+      "version": "1.1.0",
+      "resolved": "ghcr.io/guziomg/devcontainers/fish-apt-extended@sha256:ce8190cd2f0365c625c2e8b5800f27771ccf517823feb082ec96c75f5c083a66",
+      "integrity": "sha256:ce8190cd2f0365c625c2e8b5800f27771ccf517823feb082ec96c75f5c083a66",
+      "dependsOn": [
+        "ghcr.io/devcontainers-extra/features/fish-apt-get:1"
+      ]
+    },
+    "ghcr.io/guziomg/devcontainers/personal:latest": {
+      "version": "1.0.0",
+      "resolved": "ghcr.io/guziomg/devcontainers/personal@sha256:f116eaa06ae322f69943724323d757c8fb9b326c3bd7fc1899ee4d54863568ff",
+      "integrity": "sha256:f116eaa06ae322f69943724323d757c8fb9b326c3bd7fc1899ee4d54863568ff",
+      "dependsOn": [
+        "ghcr.io/guziomg/devcontainers/extensions-essentials-ultimate:latest",
+        "ghcr.io/guziomg/devcontainers/polskie-rozszerzenia:latest",
+        "ghcr.io/guziomg/devcontainers/fish-apt-extended:latest"
+      ]
+    },
+    "ghcr.io/guziomg/devcontainers/polskie-rozszerzenia:latest": {
+      "version": "1.0.0",
+      "resolved": "ghcr.io/guziomg/devcontainers/polskie-rozszerzenia@sha256:708c77bf302f7a097384dd98b3beec2e344e4965995ab38a3f861bb923fcf71d",
+      "integrity": "sha256:708c77bf302f7a097384dd98b3beec2e344e4965995ab38a3f861bb923fcf71d",
+      "dependsOn": [
+        "ghcr.io/guziomg/devcontainers/extension-spellcheck:latest"
+      ]
+    }
+  }
+}
