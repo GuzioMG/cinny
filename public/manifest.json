@@ -4,7 +4,7 @@
 	"id": "gzhb-chat-boykiss",
 	"theme_color": "#ffffff",
 	"background_color": "#ffffff",
-	"display_override": ["tabbed", "minimal-ui", "browser", "window-controls-overlay", "standalone", "fullscreen"],
+	"display_override": ["minimal-ui", "standalone", "browser", "fullscreen"],
 	"categories": ["social", "entertainment", "education", "food", "games", "personalization", "photo", "politics"],
 	"name": "Boykiss Chat",
 	"short_name": "Boykiss Chat",
