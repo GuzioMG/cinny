@@ -4,7 +4,7 @@
 	"id": "gzhb-chat",
 	"theme_color": "#e1e31a",
 	"background_color": "#e1e31a",
-	"display_override": ["tabbed", "minimal-ui", "browser", "window-controls-overlay", "standalone", "fullscreen"],
+	"display_override": ["minimal-ui", "standalone", "browser", "fullscreen"],
 	"categories": ["social", "productivity", "utilities", "entertainment", "education", "business", "personalization", "politics", "security"],
 	"name": "GuzioHub Chat",
 	"short_name": "GuzioHub Chat",
