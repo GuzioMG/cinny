@@ -190,43 +190,7 @@ function PinnedMessage({
   const usernameColor = legacyUsernameColor ? colorMXID(sender) : tagColor;
 
   return (
-    <ModernLayout
-      before={
-        <AvatarBase>
-          <Avatar size="300">
-            <UserAvatar
-              userId={sender}
-              src={
-                senderAvatarMxc
-                  ? mxcUrlToHttp(mx, senderAvatarMxc, useAuthentication, 48, 48, 'crop') ??
-                    undefined
-                  : undefined
-              }
-              alt={displayName}
-              renderFallback={() => <Icon size="200" src={Icons.User} filled />}
-            />
-          </Avatar>
-        </AvatarBase>
-      }
-    >
-      <Box gap="300" justifyContent="SpaceBetween" alignItems="Center" grow="Yes">
-        <Box gap="200" alignItems="Baseline">
-          <Box alignItems="Center" gap="200">
-            <Username style={{ color: usernameColor }}>
-              <Text as="span" truncate>
-                <UsernameBold>{displayName}</UsernameBold>
-              </Text>
-            </Username>
-            {tagIconSrc && <PowerIcon size="100" iconSrc={tagIconSrc} />}
-          </Box>
-          <Time
-            ts={pinnedEvent.getTs()}
-            hour24Clock={hour24Clock}
-            dateFormatString={dateFormatString}
-          />
-        </Box>
-        {renderOptions()}
-      </Box>
+    <Box display="Flex" direction="Column">
       {pinnedEvent.replyEventId && (
         <Reply
           room={room}
@@ -238,8 +202,46 @@ function PinnedMessage({
           legacyUsernameColor={legacyUsernameColor}
         />
       )}
-      {renderContent(pinnedEvent.getType(), false, pinnedEvent, displayName, getContent)}
-    </ModernLayout>
+      <ModernLayout
+        before={
+          <AvatarBase>
+            <Avatar size="300">
+              <UserAvatar
+                userId={sender}
+                src={
+                  senderAvatarMxc
+                    ? mxcUrlToHttp(mx, senderAvatarMxc, useAuthentication, 48, 48, 'crop') ??
+                      undefined
+                    : undefined
+                }
+                alt={displayName}
+                renderFallback={() => <Icon size="200" src={Icons.User} filled />}
+              />
+            </Avatar>
+          </AvatarBase>
+        }
+      >
+        <Box gap="300" justifyContent="SpaceBetween" alignItems="Center" grow="Yes">
+          <Box gap="200" alignItems="Baseline">
+            <Box alignItems="Center" gap="200">
+              <Username style={{ color: usernameColor }}>
+                <Text as="span" truncate>
+                  <UsernameBold>{displayName}</UsernameBold>
+                </Text>
+              </Username>
+              {tagIconSrc && <PowerIcon size="100" iconSrc={tagIconSrc} />}
+            </Box>
+            <Time
+              ts={pinnedEvent.getTs()}
+              hour24Clock={hour24Clock}
+              dateFormatString={dateFormatString}
+            />
+          </Box>
+          {renderOptions()}
+        </Box>
+        {renderContent(pinnedEvent.getType(), false, pinnedEvent, displayName, getContent)}
+      </ModernLayout>
+    </Box>
   );
 }
 

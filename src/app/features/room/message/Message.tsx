@@ -788,7 +788,7 @@ export const Message = as<'div', MessageProps>(
       </Box>
     );
 
-    const avatarJSX = !collapse && messageLayout !== MessageLayout.Compact && (
+    const avatarJSX = (!collapse || reply) && messageLayout !== MessageLayout.Compact && (
       <AvatarBase
         className={messageLayout === MessageLayout.Bubble ? css.BubbleAvatarBase : undefined}
       >

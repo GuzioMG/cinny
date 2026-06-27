@@ -476,58 +476,7 @@ function RoomNotificationsGroupComp({
               variant="SurfaceVariant"
               direction="Column"
             >
-              <ModernLayout
-                before={
-                  <AvatarBase>
-                    <Avatar size="300">
-                      <UserAvatar
-                        userId={event.sender}
-                        src={
-                          senderAvatarMxc
-                            ? mxcUrlToHttp(
-                                mx,
-                                senderAvatarMxc,
-                                useAuthentication,
-                                48,
-                                48,
-                                'crop'
-                              ) ?? undefined
-                            : undefined
-                        }
-                        alt={displayName}
-                        renderFallback={() => <Icon size="200" src={Icons.User} filled />}
-                      />
-                    </Avatar>
-                  </AvatarBase>
-                }
-              >
-                <Box gap="300" justifyContent="SpaceBetween" alignItems="Center" grow="Yes">
-                  <Box gap="200" alignItems="Baseline">
-                    <Box alignItems="Center" gap="200">
-                      <Username style={{ color: usernameColor }}>
-                        <Text as="span" truncate>
-                          <UsernameBold>{displayName}</UsernameBold>
-                        </Text>
-                      </Username>
-                      {tagIconSrc && <PowerIcon size="100" iconSrc={tagIconSrc} />}
-                    </Box>
-                    <Time
-                      ts={event.origin_server_ts}
-                      hour24Clock={hour24Clock}
-                      dateFormatString={dateFormatString}
-                    />
-                  </Box>
-                  <Box shrink="No" gap="200" alignItems="Center">
-                    <Chip
-                      data-event-id={event.event_id}
-                      onClick={handleOpenClick}
-                      variant="Secondary"
-                      radii="400"
-                    >
-                      <Text size="T200">Open</Text>
-                    </Chip>
-                  </Box>
-                </Box>
+              <Box display="Flex" direction="Column">
                 {replyEventId && (
                   <Reply
                     room={room}
@@ -539,8 +488,61 @@ function RoomNotificationsGroupComp({
                     legacyUsernameColor={legacyUsernameColor}
                   />
                 )}
-                {renderMatrixEvent(event.type, false, event, displayName, getContent)}
-              </ModernLayout>
+                <ModernLayout
+                  before={
+                    <AvatarBase>
+                      <Avatar size="300">
+                        <UserAvatar
+                          userId={event.sender}
+                          src={
+                            senderAvatarMxc
+                              ? mxcUrlToHttp(
+                                  mx,
+                                  senderAvatarMxc,
+                                  useAuthentication,
+                                  48,
+                                  48,
+                                  'crop'
+                                ) ?? undefined
+                              : undefined
+                          }
+                          alt={displayName}
+                          renderFallback={() => <Icon size="200" src={Icons.User} filled />}
+                        />
+                      </Avatar>
+                    </AvatarBase>
+                  }
+                >
+                  <Box gap="300" justifyContent="SpaceBetween" alignItems="Center" grow="Yes">
+                    <Box gap="200" alignItems="Baseline">
+                      <Box alignItems="Center" gap="200">
+                        <Username style={{ color: usernameColor }}>
+                          <Text as="span" truncate>
+                            <UsernameBold>{displayName}</UsernameBold>
+                          </Text>
+                        </Username>
+                        {tagIconSrc && <PowerIcon size="100" iconSrc={tagIconSrc} />}
+                      </Box>
+                      <Time
+                        ts={event.origin_server_ts}
+                        hour24Clock={hour24Clock}
+                        dateFormatString={dateFormatString}
+                      />
+                    </Box>
+                    <Box shrink="No" gap="200" alignItems="Center">
+                      <Chip
+                        data-event-id={event.event_id}
+                        onClick={handleOpenClick}
+                        variant="Secondary"
+                        radii="400"
+                      >
+                        <Text size="T200">Open</Text>
+                      </Chip>
+                    </Box>
+                  </Box>
+                  {renderMatrixEvent(event.type, false, event, displayName, getContent)}
+                </ModernLayout>
+              </Box>
             </SequenceCard>
           );
         })}

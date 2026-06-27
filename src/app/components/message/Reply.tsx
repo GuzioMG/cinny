@@ -103,9 +103,6 @@ export const Reply = as<'div', ReplyProps>(
 
     return (
       <Box direction="Row" gap="200" alignItems="Center" {...props} ref={ref}>
-        {threadRootId && (
-          <ThreadIndicator as="button" data-event-id={threadRootId} onClick={onClick} />
-        )}
         <ReplyLayout
           as="button"
           userColor={usernameColor}
@@ -133,6 +130,9 @@ export const Reply = as<'div', ReplyProps>(
             />
           )}
         </ReplyLayout>
+        {threadRootId && (
+          <ThreadIndicator as="button" data-event-id={threadRootId} onClick={onClick} />
+        )}
       </Box>
     );
   }
