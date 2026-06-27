@@ -109,7 +109,7 @@ function RegisterUIAFlow({
         auth: authDict,
         password,
         username,
-        initial_device_display_name: 'GuzioHub Chat client',
+        initial_device_display_name: 'Boykiss Chat client',
       });
     },
     [onRegister, formData]
@@ -250,7 +250,7 @@ export function PasswordRegisterForm({
       auth: {
         session: authData.session,
       },
-      initial_device_display_name: 'GuzioHub Chat client',
+      initial_device_display_name: 'Boykiss Chat client',
     });
   };
 

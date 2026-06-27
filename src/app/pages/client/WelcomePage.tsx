@@ -14,9 +14,9 @@ export function WelcomePage() {
       >
         <PageHeroSection>
           <PageHero
-            icon={<img width="70" height="70" src={CinnySVG} alt="Guzio's PFP" />}
-            title="Welcome to GuzioHub Chat!"
-            subTitle={<span>Discord-like Matrix client.</span>}
+            icon={<img width="70" height="70" src={CinnySVG} alt="The Boykisser cat" />}
+            title="Welcome to Boykiss Chat!"
+            subTitle={<span>Gayest chat app on this side of Europe!</span>}
           >
             <Box justifyContent="Center">
               <Box grow="Yes" style={{ maxWidth: toRem(300) }} direction="Column" gap="300">

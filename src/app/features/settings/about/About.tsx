@@ -39,16 +39,16 @@ export function About({ requestClose }: AboutProps) {
                   <img
                     style={{ width: toRem(60), height: toRem(60) }}
                     src={CinnySVG}
-                    alt="Guzio's PFP"
+                    alt="The Boykisser cat"
                   />
                 </Box>
                 <Box direction="Column" gap="300">
                   <Box direction="Column" gap="100">
                     <Box gap="100" alignItems="End">
-                      <Text size="H3">GuzioHub Chat</Text>
+                      <Text size="H3">Boykiss Chat</Text>
                       <Text size="T200">v4.12.3</Text>
                     </Box>
-                    <Text>Discord-like Matrix client.</Text>
+                    <Text>Gayest chat app on this side of Europe!</Text>
                   </Box>
 
                   <Box gap="200" wrap="Wrap">

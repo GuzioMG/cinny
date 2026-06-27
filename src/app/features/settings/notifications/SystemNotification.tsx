@@ -27,7 +27,7 @@ function EmailNotification() {
             device_display_name: email,
             lang: 'en',
             data: {
-              brand: 'Matrix',
+              brand: 'Boykiss Chat',
             },
             append: true,
           });

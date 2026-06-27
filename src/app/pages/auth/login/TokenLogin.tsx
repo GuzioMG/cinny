@@ -57,7 +57,7 @@ export function TokenLogin({ token }: TokenLoginProps) {
     startLogin(baseUrl, {
       type: 'm.login.token',
       token,
-      initial_device_display_name: 'GuzioHub Chat client',
+      initial_device_display_name: 'Boykiss Chat client',
     });
   }, [baseUrl, token, startLogin]);
 
