@@ -1,7 +1,7 @@
 {
   "name": "cinny",
   "version": "4.12.3",
-  "description": "Yet another matrix client",
+  "description": "Discord-like Matrix client",
   "main": "index.js",
   "type": "module",
   "engines": {

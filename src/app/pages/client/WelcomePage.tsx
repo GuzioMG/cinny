@@ -14,26 +14,15 @@ export function WelcomePage() {
       >
         <PageHeroSection>
           <PageHero
-            icon={<img width="70" height="70" src={CinnySVG} alt="Cinny Logo" />}
-            title="Welcome to Cinny"
-            subTitle={
-              <span>
-                Yet another matrix client.{' '}
-                <a
-                  href="https://github.com/cinnyapp/cinny/releases"
-                  target="_blank"
-                  rel="noreferrer noopener"
-                >
-                  v4.12.3
-                </a>
-              </span>
-            }
+            icon={<img width="70" height="70" src={CinnySVG} alt="Guzio's PFP" />}
+            title="Welcome to GuzioHub Chat!"
+            subTitle={<span>Discord-like Matrix client.</span>}
           >
             <Box justifyContent="Center">
               <Box grow="Yes" style={{ maxWidth: toRem(300) }} direction="Column" gap="300">
                 <Button
                   as="a"
-                  href="https://github.com/cinnyapp/cinny"
+                  href="https://github.com/GuzioMG/cinny"
                   target="_blank"
                   rel="noreferrer noopener"
                   before={<Icon size="200" src={Icons.Code} />}
@@ -44,11 +33,11 @@ export function WelcomePage() {
                 </Button>
                 <Button
                   as="a"
-                  href="https://cinny.in/#sponsor"
+                  href="https://github.com/GuzioMG/cinny/issues"
                   target="_blank"
                   rel="noreferrer noopener"
                   fill="Soft"
-                  before={<Icon size="200" src={Icons.Heart} />}
+                  before={<Icon size="200" src={Icons.Bulb} />}
                 >
                   <Text as="span" size="B400" truncate>
                     Support
